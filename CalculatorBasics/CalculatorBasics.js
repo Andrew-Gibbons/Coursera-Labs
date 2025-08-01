@@ -89,10 +89,17 @@ let totalOrder = subtotalOrder - discountAmountOrder + taxAmountOrder + shipping
 // Display the detailed calculation
 console.log("=== Order Details ===");
 // Add your console.log statements to show each step of the calculation
-console.log("Base Price: $" + basePrice.toFixed(2));
-console.log("Quantity: " + quantityOrder);
-console.log("Subtotal: $" + subtotalOrder.toFixed(2));
-console.log("Discount: $" + discountAmountOrder.toFixed(2));
-console.log("Tax: $" + taxAmountOrder.toFixed(2));
-console.log("Shipping: $" + shippingCost.toFixed(2));
-console.log("Total: $" + totalOrder.toFixed(2));
+const orderLabelWidth = 12;
+const orderValueWidth = 10;
+
+function padOrder(str, length) {
+    return str + " ".repeat(Math.max(0, length - str.length));
+}
+
+console.log(padOrder("Base Price:", orderLabelWidth) + "$" + basePrice.toFixed(2).padStart(orderValueWidth - 1));
+console.log(padOrder("Quantity:", orderLabelWidth) + String(quantityOrder).padStart(orderValueWidth));
+console.log(padOrder("Subtotal:", orderLabelWidth) + "$" + subtotalOrder.toFixed(2).padStart(orderValueWidth - 1));
+console.log(padOrder("Discount:", orderLabelWidth) + "-$" + discountAmountOrder.toFixed(2).padStart(orderValueWidth - 2));
+console.log(padOrder("Tax:", orderLabelWidth) + "$" + taxAmountOrder.toFixed(2).padStart(orderValueWidth - 1));
+console.log(padOrder("Shipping:", orderLabelWidth) + "$" + shippingCost.toFixed(2).padStart(orderValueWidth - 1));
+console.log(padOrder("Total:", orderLabelWidth) + "$" + totalOrder.toFixed(2).padStart(orderValueWidth - 1));
