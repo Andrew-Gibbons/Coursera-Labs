@@ -73,19 +73,19 @@ console.log(pad("Subtotal:", labelWidth) + "$" + subtotal.toFixed(2).padStart(va
 
 // Order information
 let basePrice = 49.99;
-let quantityOrder = 2;
+let quantityOrder = 1;
 let discountPercentOrder = 15;
 let taxRate = 8;  // 8% sales tax
+let shippingPrice = 5.00;
 // Calculate subtotal (price * quantity)
 let subtotalOrder = basePrice * quantityOrder;
 // Calculate discount
 let discountDecimalOrder = discountPercentOrder / 100;
 let discountAmountOrder = subtotalOrder * discountDecimalOrder;
-// Hint: Remember to convert percentage to decimal first
-// Your code here:
+let shippingCost = (subtotalOrder - discountAmountOrder) < 50 ? 5 : 0;
 // Calculate tax on the discounted amount
-// Your code here:
 let taxAmountOrder = (subtotalOrder - discountAmountOrder) * (taxRate / 100);
+let totalOrder = subtotalOrder - discountAmountOrder + taxAmountOrder + shippingCost;
 // Display the detailed calculation
 console.log("=== Order Details ===");
 // Add your console.log statements to show each step of the calculation
@@ -94,4 +94,5 @@ console.log("Quantity: " + quantityOrder);
 console.log("Subtotal: $" + subtotalOrder.toFixed(2));
 console.log("Discount: $" + discountAmountOrder.toFixed(2));
 console.log("Tax: $" + taxAmountOrder.toFixed(2));
-console.log("Total: $" + (subtotalOrder - discountAmountOrder + taxAmountOrder).toFixed(2));
+console.log("Shipping: $" + shippingCost.toFixed(2));
+console.log("Total: $" + totalOrder.toFixed(2));
