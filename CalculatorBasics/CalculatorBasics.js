@@ -70,3 +70,28 @@ console.log(pad("Price:", labelWidth) + "$" + price.toFixed(2).padStart(valueWid
 console.log(pad("Quantity:", labelWidth) + String(quantity).padStart(valueWidth));
 console.log(pad("Subtotal:", labelWidth) + "$" + subtotal.toFixed(2).padStart(valueWidth - 1));
 // Include: product name, price, quantity, and subtotal
+
+// Order information
+let basePrice = 49.99;
+let quantityOrder = 2;
+let discountPercentOrder = 15;
+let taxRate = 8;  // 8% sales tax
+// Calculate subtotal (price * quantity)
+let subtotalOrder = basePrice * quantityOrder;
+// Calculate discount
+let discountDecimalOrder = discountPercentOrder / 100;
+let discountAmountOrder = subtotalOrder * discountDecimalOrder;
+// Hint: Remember to convert percentage to decimal first
+// Your code here:
+// Calculate tax on the discounted amount
+// Your code here:
+let taxAmountOrder = (subtotalOrder - discountAmountOrder) * (taxRate / 100);
+// Display the detailed calculation
+console.log("=== Order Details ===");
+// Add your console.log statements to show each step of the calculation
+console.log("Base Price: $" + basePrice.toFixed(2));
+console.log("Quantity: " + quantityOrder);
+console.log("Subtotal: $" + subtotalOrder.toFixed(2));
+console.log("Discount: $" + discountAmountOrder.toFixed(2));
+console.log("Tax: $" + taxAmountOrder.toFixed(2));
+console.log("Total: $" + (subtotalOrder - discountAmountOrder + taxAmountOrder).toFixed(2));
